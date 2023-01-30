@@ -1,0 +1,39 @@
+.starRating {
+}
+
+.starRating__star{
+  font-size: 1rem;
+  color: #b7b7b7d5;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.starRating__star:disabled{
+  pointer-events: none;
+}
+
+.starRating__star--active{
+  color: #ffa500;
+}
+
+.starRating--extraSmall{
+  font-size: 0.5rem;
+}
+
+.starRating--small{
+  font-size: 0.7rem;
+}
+
+.starRating--large{
+  font-size: 1.5rem;
+}
+
+.starRating--extraLarge{
+  font-size: 2rem;
+}
+
+
