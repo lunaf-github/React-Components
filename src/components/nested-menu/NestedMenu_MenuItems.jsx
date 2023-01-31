@@ -4,9 +4,12 @@ import Dropdown from './NestedMenu_Dropdown';
 
 const MenuItems = ({items, depthLevel}) => {
 
+  const nestedMenuScreenSize = 300;
+
   const [dropdown, setDropdown] = useState(false);
   let ref = useRef();
 
+  // close menu when use clicks outside the menu. 
   useEffect(() => {
     const handler = (event) => {
      if (dropdown && ref.current && !ref.current.contains(event.target)) {
@@ -22,18 +25,20 @@ const MenuItems = ({items, depthLevel}) => {
     };
    }, [dropdown]);
 
+   // open and close menu if mouse enters or leaves element
+
    const onMouseEnter = () => {
-    window.innerWidth > 960 && setDropdown(true);
+      setDropdown(true);
    };
    
    const onMouseLeave = () => {
-    window.innerWidth > 960 && setDropdown(false);
+      setDropdown(false);
    };
 
 
   return(
     <li 
-      className="menuItems" 
+      className="menu-items" 
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       ref={ref}
@@ -41,19 +46,19 @@ const MenuItems = ({items, depthLevel}) => {
       {items.submenu? (
         <>
           <button 
-            className="menuItems__subMenu" 
+            className="menu-items__submenu" 
             type="button"
             aria-haspopup="menu"
             aria-expanded={dropdown? "true" : "false"}
-            onClick={() => setDropdown((prev) => !prev)}
+            onClick={() => setDropdown((prevState) => !prevState)}
           >
             {items.title}{' '}
-            {depthLevel > 0? <span>&raquo;</span> : <span className="menuItems__arrow" />}
+            {depthLevel > 0? <span>&raquo;</span> : <span className="menu-items--down-arrow" />}
           </button>
           <Dropdown depthLevel={depthLevel} submenus={items.submenu} dropdown={dropdown} />
         </>
       ) : (
-        <a className="menuItems__noSubMenu" href={items.url}>{items.title}</a>
+        <a className="menu-items__no-submenu" href={items.url}>{items.title}</a>
       )}
     </li>
   )

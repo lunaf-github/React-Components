@@ -6,7 +6,7 @@ import "./NestedMenu.css"
 const Header = () => {
   return(
    <header className="header">
-    <div className="header__navbarArea">
+    <div className="header__navbar-area">
       <a href="/" className="header__logo">
         Logo
       </a>
