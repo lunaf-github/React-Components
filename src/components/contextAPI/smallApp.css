@@ -1,0 +1,48 @@
+.smallapp {
+  width: 30vw;
+}
+
+.theme--dark {
+  color: white;
+  background-color: black;
+  border: 1px solid white;
+
+}
+
+.theme--light {
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+}
+
+.title {
+  text-align: center;
+}
+
+.nav {
+  display: inline-block;
+  width: 100%;
+}
+
+.nav__menuItem {
+  margin: 0 20px;
+}
+
+.main {
+  display: flex;
+  margin: .5rem 0;
+}
+
+.sidebar {
+  width: 20%;
+  margin-right: .5rem;
+}
+
+.content {
+  text-align: center;
+  width: 80%;
+}
+
+.footer {
+  text-align: center;
+}
