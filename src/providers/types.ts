@@ -1,0 +1,1 @@
+export type ThemeContextType = {theme: string, toggleTheme: (event: React.ChangeEvent<HTMLSelectElement>) => void}

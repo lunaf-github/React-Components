@@ -1,0 +1,7 @@
+1. Remember that events in React follow the following syntax:  React.[event type]Event<HTML[type of element]>
+   For example, React.ChangeEvent<HTMLSelectElement> 
+
+2. Children are type React.ReactNode
+
+3. Make sure to use the extension .tsx if you use any kind of React components. Or else you'll get the following error: 
+   Error: 'App' refers to a value, but is being used as a type here. Did you mean 'typeof App'?  
