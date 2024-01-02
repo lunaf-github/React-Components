@@ -6,11 +6,9 @@
 body {
     min-height: 100vh;
     height: 100vh;
-    border: 2px solid blue;
 }
 
 #root {
     height: 100%;
-    border: 2px solid red;
 }
 

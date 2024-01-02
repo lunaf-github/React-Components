@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 import ThemeContext from "./themeContext";
-import { LIGHT, DARK, GREY } from './colors'
+import { LIGHT, DARK, GREY, COLORS } from './colors'
 
 
 
@@ -14,7 +14,7 @@ function ThemeProvider({ children }: {children: React.ReactNode}): React.ReactNo
 
 
   return (
-    <ThemeContext.Provider value={{theme, toggleTheme}}>
+    <ThemeContext.Provider value={{theme, toggleTheme, colors: COLORS}}>
       {children}
     </ThemeContext.Provider>
   );

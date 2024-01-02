@@ -2,16 +2,15 @@
 import React from "react";
 import StarRating from "./star-rating/StarRating";
 import Header from "./nested-menu/NestedMenu_Header";
-import { COLORS } from "../providers/colors";
-import useThemeContext from "../providers/useThemeContext";
-import ThemeSelector from "../providers/ThemeSelector";
+import useThemeContext from "../providers/theme/useThemeContext";
+import ThemeSelector from "../providers/theme/ThemeSelector";
 
 const App = () => {
 
-  const {theme} = useThemeContext();
-  console.log(COLORS[theme])
+  const {theme, colors} = useThemeContext();
+
   return (
-    <div className="App" style={{backgroundColor: COLORS[theme].background}}>
+    <div className="App" style={{backgroundColor: colors[theme].background}}>
       <ThemeSelector />
       <h2>Star Rating</h2>
       <StarRating rating={3} totalStars={5}  />

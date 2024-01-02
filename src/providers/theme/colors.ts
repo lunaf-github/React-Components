@@ -1,6 +1,7 @@
 export const LIGHT = 'light';
 export const DARK = 'dark';
 export const GREY = 'grey';
+export const BLUE = 'blue';
 
 export const COLORS =  {
   [LIGHT]: {
@@ -17,5 +18,8 @@ export const COLORS =  {
     background: '#555555',
     accent: '#fffaf0',
     logo: '#4eebff'
+  },
+  [BLUE]: {
+    background: '#0000FF'
   }
 }
