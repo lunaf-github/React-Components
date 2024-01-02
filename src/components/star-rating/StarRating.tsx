@@ -4,7 +4,7 @@
 import React from 'react';
 import {useState} from 'react'
 import './starRating.css';
-import ThemeSelector from '../../providers/theme/ThemeSelector';
+
 const classNames = require('classnames');
 
 const StarRating = (props: {rating: number, size: string, totalStars:number, lock: boolean}) => {
