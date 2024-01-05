@@ -10,7 +10,7 @@ const Navbar = () => {
     <nav className="navbar">
       <ul className="navbar__menus">
         {menuItems.map((menu, index) => {
-            return <MenuItems items={menu} key={index} depthLevel={depthLevel} />;
+            return <MenuItems item={menu} key={index} depthLevel={depthLevel} />;
         })}
       </ul>
     </nav>

@@ -1,21 +1,24 @@
-import React from 'react';
+import React, { EventHandler } from 'react';
 import { useState, useEffect, useRef } from 'react';
+import { JSONMenuItem } from './types';
 import Dropdown from './NestedMenu_Dropdown';
 
-const MenuItems = ({items, depthLevel}) => {
+const MenuItems = ({item, depthLevel}: {item: JSONMenuItem, depthLevel: number}) => {
 
   const nestedMenuScreenSize = 300;
 
   const [dropdown, setDropdown] = useState(false);
-  let ref = useRef();
+  let ref = useRef<HTMLLIElement>(null);
 
   // close menu when use clicks outside the menu. 
   useEffect(() => {
-    const handler = (event) => {
-     if (dropdown && ref.current && !ref.current.contains(event.target)) {
+    const handler = (event: MouseEvent | TouchEvent): void => {
+     if (dropdown && ref.current && !ref.current.contains(event.target as Element)) {
       setDropdown(false);
      }
     };
+
+
     document.addEventListener("mousedown", handler);
     document.addEventListener("touchstart", handler);
     return () => {
@@ -43,7 +46,7 @@ const MenuItems = ({items, depthLevel}) => {
       onMouseLeave={onMouseLeave}
       ref={ref}
     >
-      {items.submenu? (
+      {item.submenu? (
         <>
           <button 
             className="menu-items__submenu" 
@@ -52,13 +55,13 @@ const MenuItems = ({items, depthLevel}) => {
             aria-expanded={dropdown? "true" : "false"}
             onClick={() => setDropdown((prevState) => !prevState)}
           >
-            {items.title}{' '}
+            {item.title}{' '}
             {depthLevel > 0? <span>&raquo;</span> : <span className="menu-items--down-arrow" />}
           </button>
-          <Dropdown depthLevel={depthLevel} submenus={items.submenu} dropdown={dropdown} />
+          <Dropdown depthLevel={depthLevel} submenus={item.submenu} dropdown={dropdown} />
         </>
       ) : (
-        <a className="menu-items__no-submenu" href={items.url}>{items.title}</a>
+        <a className="menu-items__no-submenu" href={item.url}>{item.title}</a>
       )}
     </li>
   )
